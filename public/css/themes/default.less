@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,300,700,800);
+
 // Brand Colors
 // -------------------------
 
@@ -9,8 +11,6 @@
 
 // Typography
 // -------------------------
-
-@headings-font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Arial Narrow", Arial, sans-serif;
 
 // Buttons
 // -------------------------
@@ -30,12 +30,12 @@
   }
 }
 
-.btn-link {
-  box-shadow: none;
-}
-
 .btn-default, .btn-default:focus {
   background-image: linear-gradient(to bottom, #ffffff 60%, #f8f8f8 100%);
+}
+
+.btn-link {
+  box-shadow: none;
 }
 
 // Forms
@@ -78,25 +78,6 @@
 // Navbar
 // -------------------------
 
-@navbar-default-bg: rgba(255, 255, 255, 0.9);
-@navbar-default-link-color: #252525;
-@navbar-default-link-hover-color: #4da5f4;
-@navbar-default-link-active-color: #4da5f4;
-@navbar-default-link-hover-bg: transparent;
-@navbar-default-link-active-bg: transparent;
-@navbar-default-color: #fafafa;
-@navbar-default-brand-hover-color: #4da5f4;
-
-.navbar-default {
-  border: 0;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-
-  .navbar-nav {
-    > li > a {
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      transition: all 0.2s linear;
-    }
-  }
+.navbar-default .navbar-nav > li a {
+  transition: color 0.3s;
 }

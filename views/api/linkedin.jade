@@ -46,10 +46,9 @@ block content
                   | #{company.title}
                   |  at
                   | #{company.company.name}
-          if profile.educations
-            dt.text-muted Education
-              for education in profile.educations.values
-                dd= education.schoolName
+          dt.text-muted Education
+            for education in profile.educations.values
+              dd= education.schoolName
           dt.text-muted Recommendations
           dd
             strong #{profile.numRecommenders}

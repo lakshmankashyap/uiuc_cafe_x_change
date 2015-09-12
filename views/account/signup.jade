@@ -1,10 +1,9 @@
 extends ../layout
 
 block content
-  .page-header
-    h3 Sign up
   form.form-horizontal(id='signup-form', method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
+    input(type='hidden', name='_csrf', value=token)
+    legend Signup
     .form-group
       label.col-sm-3.control-label(for='email') Email
       .col-sm-7
@@ -20,5 +19,5 @@ block content
     .form-group
       .col-sm-offset-3.col-sm-7
         button.btn.btn-success(type='submit')
-          i.fa.fa-user-plus
+          i.fa.fa-check
           | Signup

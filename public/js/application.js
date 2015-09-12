@@ -7,12 +7,8 @@
  *
  * It's not advisable to add code directly here, but if you do, it will appear
  * at the bottom of the compiled file.
- *
- * If you are planning to include all custom JavaScript inside main.js then
- * you don't have touch this file at all, otherwise add additional scripts
- * below via "//= require [filename]".
  */
 
-//= require lib/jquery-2.1.3.min
+//= require lib/jquery-2.1.0.min
 //= require lib/bootstrap.min
 //= require main

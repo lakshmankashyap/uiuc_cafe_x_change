@@ -1,10 +1,15 @@
 var secrets = require('../config/secrets');
 var nodemailer = require("nodemailer");
-var transporter = nodemailer.createTransport({
+var smtpTransport = nodemailer.createTransport('SMTP', {
+//  service: 'Mailgun',
+//  auth: {
+//    user: secrets.mailgun.login,
+//    pass: secrets.mailgun.password
+//  }
   service: 'SendGrid',
   auth: {
-    user: secrets.sendgrid.user,
-    pass: secrets.sendgrid.password
+       user: secrets.sendgrid.user,
+       pass: secrets.sendgrid.password
   }
 });
 
@@ -12,6 +17,7 @@ var transporter = nodemailer.createTransport({
  * GET /contact
  * Contact form page.
  */
+
 exports.getContact = function(req, res) {
   res.render('contact', {
     title: 'Contact'
@@ -21,7 +27,11 @@ exports.getContact = function(req, res) {
 /**
  * POST /contact
  * Send a contact form via Nodemailer.
+ * @param email
+ * @param name
+ * @param message
  */
+
 exports.postContact = function(req, res) {
   req.assert('name', 'Name cannot be blank').notEmpty();
   req.assert('email', 'Email is not valid').isEmail();
@@ -38,16 +48,16 @@ exports.postContact = function(req, res) {
   var name = req.body.name;
   var body = req.body.message;
   var to = 'your@email.com';
-  var subject = 'Contact Form | Hackathon Starter';
+  var subject = 'API Example | Contact Form';
 
   var mailOptions = {
     to: to,
     from: from,
     subject: subject,
-    text: body
+    text: body + '\n\n' + name
   };
 
-  transporter.sendMail(mailOptions, function(err) {
+  smtpTransport.sendMail(mailOptions, function(err) {
     if (err) {
       req.flash('errors', { msg: err.message });
       return res.redirect('/contact');
