@@ -29,10 +29,13 @@ exports.newDeal = function(req, res, next){
 		venmoUsername: req.body.venmoUsername,
 		credits: req.body.credits,
 		dollars: req.body.dollars,
-		ihave: req.body.ihave
+		ihave: req.body.ihave,
+		email: req.body.email
 	}, function(err){
 		if (err) throw err;
 	});
+
+	// res.window.location('/deals');
 
 	// var deal = new Deals({
 	//   venmoUsername: req.venmoUsername,
@@ -46,4 +49,15 @@ exports.newDeal = function(req, res, next){
 
 	//   console.log('deal saved');
 	// });
+};
+
+exports.rmDeal = function(req, res, next) {
+	console.log(req.body);
+	Deals.findById(req.body.id, function(err, doc){
+		if (err) throw err;
+		if (doc)
+		{
+			doc.remove();
+		}
+	});
 };

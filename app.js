@@ -110,6 +110,7 @@ app.use(express.errorHandler());
 app.get('/', homeController.index);
 app.get('/deals', dealsController.index);
 app.post('/newDeal', dealsController.newDeal);
+app.post('/rmDeal', dealsController.rmDeal);
 app.get('/new', newController.index);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);

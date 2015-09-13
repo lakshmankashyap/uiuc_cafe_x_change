@@ -6,7 +6,20 @@
 	<a class="btn btn-success btn-large" href="/new">add new</a>
 </h1>
 <ul>
-    <% deals.forEach(function(d) { %>
-        <li><%= d.credits %></li>
+    <% deals.forEach(function(d) { 
+    	var bg_class = "bg-success";
+
+    	if (d.ihave == "dollars")
+    	{
+    		bg_class = "bg-warning"
+    	}		
+    	%>
+        <li class="<%= bg_class%>"><%= d.venmoUsername %> has <%= d.ihave %>
+        	<br/>
+        	rate: <%= d.credits %> credits/<%= d.dollars%> dollars
+        	<br/>
+        	<a class="btn btn-primary btn-medium" id="contact_btn" href="mailto:<%= d.email%>">contact</a>
+        	<a class="btn btn-danger btn-medium" id="rm_btn" data-id="<%= d._id%>">delete</a>
+        </li>
     <% }); %>
 </ul>
