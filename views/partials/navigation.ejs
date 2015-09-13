@@ -11,16 +11,16 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="<%= (title == 'Home')? 'active':'' %>">
-                <a href="/">Home</a>
+                <a href="/">home</a>
             </li>
-            <li class="<%= (title == 'API Browser')? 'active':'' %>">
-                <a href="/api">API Browser</a>
+            <li class="<%= (title == 'Deals')? 'active':'' %>">
+                <a href="/deals">deals</a>
             </li>
-            <li class="<%= (title == 'Contact')? 'active':'' %>">
-                <a href="/contact">Contact</a>
-            </li>
+           <!--  <li class="<%= (title == 'Contact')? 'active':'' %>">
+                <a href="/contact">contact</a>
+            </li> -->
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <!-- <ul class="nav navbar-nav navbar-right">
             <% if (!user) {%>
                 <li class="<%= (title == 'Login')? 'active':'' %>">
                     <a href="/login">Login</a>
@@ -52,6 +52,6 @@
                     </ul>
                 </li>
             <% } %>
-        </ul>
+        </ul> -->
     </div>
 </div>

@@ -1,0 +1,12 @@
+<%- layout('layout') %>
+
+<h1 class="text-center">
+	deals
+	<br>
+	<a class="btn btn-success btn-large" href="/new">add new</a>
+</h1>
+<ul>
+    <% deals.forEach(function(d) { %>
+        <li><%= d.credits %></li>
+    <% }); %>
+</ul>

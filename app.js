@@ -16,6 +16,8 @@ var ejslocals = require('ejs-locals');
  * Load controllers.
  */
 
+var newController = require('./controllers/new')
+var dealsController = require('./controllers/deals')
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
@@ -74,12 +76,13 @@ app.use(express.session({
     auto_reconnect: true
   })
 }));
-app.use(express.csrf());
+// avoiding csrf
+// app.use(express.csrf());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {
   res.locals.user = req.user;
-  res.locals.token = req.csrfToken();
+  // res.locals.token = req.csrfToken();
   res.locals.secrets = secrets;
   next();
 });
@@ -105,6 +108,9 @@ app.use(express.errorHandler());
  */
 
 app.get('/', homeController.index);
+app.get('/deals', dealsController.index);
+app.post('/newDeal', dealsController.newDeal);
+app.get('/new', newController.index);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);

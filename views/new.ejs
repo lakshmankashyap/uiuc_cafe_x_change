@@ -1,0 +1,29 @@
+<%- layout('layout') %>
+
+<h1 class="text-center">
+	new deal
+</h1>
+<form style="width:200px; margin-left:0; margin-right:auto;" id="newDeal_form" method="post" action="/newDeal">
+	<div class="form-group">
+		<label for="venmoUsername">venmo username</label>
+		<input type="text" class="form-control" id="venmoUsername" placeholder="username" name="venmoUsername">
+	</div>
+	<div class="form-group">
+		<label for="credits">credits</label>
+		<input type="number" step="0.01" min="0" class="form-control" id="credits" placeholder="0.00" name="credits">
+	</div>
+	<div class="form-group">
+		<label for="dollars">dollars</label>
+		<input type="number" step="0.01" min="0" class="form-control" id="dollars" placeholder="0.00" name="dollars">
+	</div>
+	<div class="form-group">
+		<label>I have:</label>
+		<br/>
+		<label class="radio-inline"><input type="radio" name="ihave" value="credits" checked="checked">credits</label>
+		<label class="radio-inline"><input type="radio" name="ihave" value="dollars">dollars</label>
+	</div>
+<!-- 	<input type-"hidden" name="_csrf" value="<%%>">
+ -->	
+ 	<button class="btn btn-default" id="submit">Submit!</button>
+	<!-- add type= submit for form to handle post request -->
+</form>
